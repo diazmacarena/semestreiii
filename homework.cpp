@@ -32,3 +32,18 @@ void customSort(int* p, int* q) {
         *(j + 1) = key; 
     }
 }
+void mergeC(int *p, int *q) {
+    int* fin = p + (q - p) * 2;
+    while ((p < q) && (q < fin)) {
+        if (*p <= *q) {
+            p++;
+        }
+        else {
+            for (int* r = p; r < q; r++) {
+                swap(*r, *q);
+                q++;
+                p++;
+            }
+        }
+    }
+}
